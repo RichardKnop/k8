@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        name: helloworld1
+      name: helloworld1-service
+      namespace: maiden-dev
+    spec:
+      ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 8080
+      selector:
+        name: helloworld1
+      type: NodePort
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        name: helloworld2
+      name: helloworld2-service
+      namespace: maiden-dev
+    spec:
+      ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 8080
+      selector:
+        name: helloworld2
+      type: NodePort
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        name: helloworld3
+      name: helloworld3-service
+      namespace: maiden-dev
+    spec:
+      ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 8080
+      selector:
+        name: helloworld3
+      type: NodePort

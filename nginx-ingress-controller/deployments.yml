@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      labels:
+        name: helloworld1
+      name: helloworld1
+      namespace: default
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          name: helloworld1
+      template:
+        metadata:
+          labels:
+            name: helloworld1
+        spec:
+          containers:
+          - image: gcr.io/ringed-venture-229910/hello-app:v1
+            imagePullPolicy: Always
+            name: helloworld1
+            ports:
+            - containerPort: 8080
+              protocol: TCP
+          restartPolicy: Always
+  - apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      labels:
+        name: helloworld2
+      name: helloworld2
+      namespace: default
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          name: helloworld2
+      template:
+        metadata:
+          labels:
+            name: helloworld2
+        spec:
+          containers:
+          - image: gcr.io/ringed-venture-229910/hello-app:v2
+            imagePullPolicy: Always
+            name: helloworld2
+            ports:
+            - containerPort: 8080
+              protocol: TCP
+          restartPolicy: Always
+  - apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      labels:
+        name: helloworld3
+      name: helloworld3
+      namespace: default
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          name: helloworld3
+      template:
+        metadata:
+          labels:
+            name: helloworld3
+        spec:
+          containers:
+          - image: gcr.io/ringed-venture-229910/hello-app:v3
+            imagePullPolicy: Always
+            name: helloworld3
+            ports:
+            - containerPort: 8080
+              protocol: TCP
+          restartPolicy: Always
